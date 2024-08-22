@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NontonYuk\Auth\AuthLoginController;
 use App\Http\Controllers\NontonYuk\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', DashboardController::class);
+
+Route::controller(AuthLoginController::class)->group(function (){
+    Route::get('/login', 'index');
+    Route::post('/login', 'auth_login');
+    Route::post('/logout', 'auth_logout');
+});
