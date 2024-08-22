@@ -4,17 +4,17 @@ namespace App\Http\Controllers\NontonYuk\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\FlareClient\View;
 
-class DashboardController extends Controller
+class KelolaLokasiController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return View('nontonyuk.backend.dashboard.index', [
-            'title' => 'Dashboard | NontonYuk'
+        return view('nontonyuk.backend.kelolalokasi.index', [
+            'title' => 'NontonYuk | Kelola Lokasi'
         ]);
     }
 

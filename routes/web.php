@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NontonYuk\Auth\AuthLoginController;
 use App\Http\Controllers\NontonYuk\Backend\DashboardController;
+use App\Http\Controllers\NontonYuk\Backend\KelolaLokasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::controller(AuthLoginController::class)->group(function (){
     Route::post('/login', 'auth_login');
     Route::post('/logout', 'auth_logout');
 });
+Route::resource('/dashboard', DashboardController::class);
+Route::resource('/kelolalokasi', KelolaLokasiController::class);
