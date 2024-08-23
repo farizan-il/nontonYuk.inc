@@ -24,7 +24,7 @@ class AuthLoginController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required'
         ]);
 
         $email = $request->input('email');

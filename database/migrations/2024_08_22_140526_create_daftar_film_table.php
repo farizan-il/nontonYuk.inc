@@ -27,6 +27,10 @@ return new class extends Migration
             $table->string('distributor', 255);
             $table->timestamps();
 
+            // === RELASI TABLE
+            $table->uuid('genre_film_id');
+            $table->foreign('genre_film_id')->references('genreFilmId')->on('GenreFilm');
+
         });
 
         Schema::enableForeignKeyConstraints();

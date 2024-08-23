@@ -321,8 +321,8 @@
                                 <span>Film</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="/daftarfilm">Daftar Film</a></li>
-                                <li><a class="nav-link" href="/kategorifilm">Atur Genre Film</a></li>
+                                <li class="{{ Request::is('daftarfilm') ? 'active' : '' }}"><a class="nav-link" href="/daftarfilm">Daftar Film</a></li>
+                                <li class="{{ Request::is('kategorifilm') ? 'active' : '' }}"><a class="nav-link" href="/kategorifilm">Atur Genre Film</a></li>
                             </ul>
                         </li>
 
@@ -538,6 +538,27 @@
     <!-- Template JS File -->
     <script src="{{ asset('template/js/scripts.js') }}"></script>
     <script src="{{ asset('template/js/custom.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK'
+                });
+            @elseif(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '{{ session('error') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
+    </script>
 </body>
 
 </html>
