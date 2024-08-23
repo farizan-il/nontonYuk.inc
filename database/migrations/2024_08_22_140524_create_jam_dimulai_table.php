@@ -23,6 +23,8 @@ return new class extends Migration
             $table->foreign('daftar_film_id')->references('daftarFilmId')->on('DaftarFilm');
             $table->uuid('daftar_teater_id');
             $table->foreign('daftar_teater_id')->references('daftarTeaterId')->on('DaftarTeater');
+            $table->uuid('jadwal_bioskop_id');
+            $table->foreign('jadwal_bioskop_id')->references('jadwalBioskopId')->on('JadwalBioskop');
         });
 
         Schema::enableForeignKeyConstraints();

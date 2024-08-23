@@ -18,5 +18,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            DaftarFilmSeeder::class,
+            UserAuthSeeder::class,
+            // Tambahkan seeder lain di sini
+        ]);
     }
 }

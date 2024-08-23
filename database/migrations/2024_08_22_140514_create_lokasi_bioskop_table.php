@@ -21,7 +21,7 @@ return new class extends Migration
 
             // === TABLE RELASI ===
             $table->uuid('user_credentials_id');
-            $table->foreign('user_credentials_id')->references('credentialsId')->on('user_credentials');
+            $table->foreign('user_credentials_id')->references('credentialsId')->on('UserCredentials');
         });
 
         Schema::enableForeignKeyConstraints();
