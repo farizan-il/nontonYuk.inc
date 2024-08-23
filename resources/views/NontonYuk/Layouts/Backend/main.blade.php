@@ -262,7 +262,7 @@
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="{{ asset('template/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                            <div class="d-sm-none d-lg-inline-block">Hi, Farizan</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-title">Logged in 5 min ago</div>
@@ -315,13 +315,13 @@
                         </li>
 
                         {{-- Kelola Film --}}
-                        <li class="dropdown {{ Request::is('kategorifilm') || Request::is('daftarfilm') ? 'active' : '' }}">
+                        <li class="dropdown {{ Request::is('kategorifilm') || Request::is('daftarfilm*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                                 <i class='bx bxs-movie'></i>
                                 <span>Film</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="{{ Request::is('daftarfilm') ? 'active' : '' }}"><a class="nav-link" href="/daftarfilm">Daftar Film</a></li>
+                                <li class="{{ Request::is('daftarfilm*') ? 'active' : '' }}"><a class="nav-link" href="/daftarfilm">Daftar Film</a></li>
                                 <li class="{{ Request::is('kategorifilm') ? 'active' : '' }}"><a class="nav-link" href="/kategorifilm">Atur Genre Film</a></li>
                             </ul>
                         </li>

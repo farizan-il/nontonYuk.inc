@@ -31,11 +31,13 @@
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header">
-                                <h4>Tabel Kelola Lokasi</h4>
+                                <h4>Tabel Kelola Film</h4>
                                 <div class="card-header-form d-flex">
-                                    <button class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
+                                    <div data-toggle="tooltip" data-placement="left" title="" data-original-title="Menambahkan Film">
+                                        <a class="btn btn-primary mr-3" href="/daftarfilm/create">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
                                     <form>
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search">
@@ -84,7 +86,11 @@
                                                     <strong>{{ $item->rating }}</strong>
                                                 </div>
                                             </td>
-                                            <td class="text-nowrap">{{ $item->genre->namaGenre }}</td>
+                                            <td class="text-nowrap">
+                                                <a href="" class="btn btn-outline-secondary btn-sm disabled fw-bold">
+                                                    <strong>{{ $item->genre }}</strong>
+                                                </a>
+                                            </td>
                                             <td class="text-nowrap">{{ $item->produser }}</td>
                                             <td class="text-nowrap">{{ $item->director }}</td>
                                             <td class="text-nowrap">{{ $item->penulis }}</td>
