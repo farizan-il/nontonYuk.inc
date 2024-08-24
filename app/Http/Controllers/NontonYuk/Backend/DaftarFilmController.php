@@ -92,7 +92,15 @@ class DaftarFilmController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $detailfilm = DaftarFilm::findOrFail($id);
+
+        if (!$detailfilm) {
+            abort(404, 'Film not found');
+        }
+        return view('nontonyuk.backend.film.daftarfilm.show', [
+            'title' => 'NontonYuk | Detail Film',
+            'detailfilm' => $detailfilm
+        ]);
     }
 
     /**
@@ -100,7 +108,17 @@ class DaftarFilmController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $genre = GenreFilm::all();
+        $detailfilm = DaftarFilm::findOrFail($id);
+
+        if (!$detailfilm) {
+            abort(404, 'Film not found');
+        }
+        return view('nontonyuk.backend.film.daftarfilm.edit', [
+            'title' => 'NontonYuk | Edit Film',
+            'detailfilm' => $detailfilm,
+            'genre' => $genre
+        ]);
     }
 
     /**
@@ -108,7 +126,30 @@ class DaftarFilmController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $film = DaftarFilm::findOrFail($id);
+
+        $film->judulfilm = $request->input(['judulFilm']);
+        $film->judulFilm = $request->input('judulFilm');
+        $film->rating = $request->input('rating');
+        $film->genre = $request->input('genreFilm');
+        $film->sinopsis = $request->input('sinopsis');
+        $film->durasi = $request->input('durasi');
+        $film->produser = $request->input('produser');
+        $film->director = $request->input('director');
+        $film->penulis = $request->input('penulis');
+        $film->pemeran = $request->input('pemeran');
+        $film->distributor = $request->input('distributor');
+
+        if($request->hasFile('sampulFilm'))
+        {
+            $file = $request->file('sampulFilm');
+            $filename = time(). '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('image/sampul_film'), $filename);
+            $film->sampulfIlm = $filename;
+        }
+
+        $film->save();
+        return redirect()->route('daftarfilm.index')->with('success', 'Film Berhasil Diperbarui.');
     }
 
     /**
@@ -116,6 +157,12 @@ class DaftarFilmController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $film = DaftarFilm::findOrFail($id);
+            $film->delete();
+            return redirect('/daftarfilm')->with('success', 'Film Berhasil Dihapus');
+        }catch(\Exception $e) {
+            return redirect('/daftarfilm')->with('error', 'Terjadi Error');
+        }
     }
 }

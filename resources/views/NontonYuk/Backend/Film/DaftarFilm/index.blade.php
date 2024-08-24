@@ -97,7 +97,11 @@
                                             
                                             <td class="text-nowrap">{{ $item->pemeran }}</td>
                                             <td class="text-nowrap">{{ $item->distributor }}</td>
-                                            <td class="text-nowrap sticky-cell"><a href="#" class="btn btn-primary"><strong>Detail</strong></a></td>
+                                            <td class="text-nowrap sticky-cell">
+                                                <a href="{{ route('daftarfilm.show', $item->daftarFilmId) }}" class="btn btn-primary">
+                                                    <strong>Detail</strong>
+                                                </a>
+                                            </td>
                                             
                                         </tr>
                                         @endforeach
