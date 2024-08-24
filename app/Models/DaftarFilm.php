@@ -16,6 +16,7 @@ class DaftarFilm extends Model
         'judulFilm',
         'sampulFilm',
         'sinopsis',
+        'genre',
         'durasi',
         'rating',
         'produser',
@@ -23,7 +24,6 @@ class DaftarFilm extends Model
         'penulis',
         'pemeran',
         'distributor',
-        'genre_film_id'
     ];
 
     public function genre()
