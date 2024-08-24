@@ -327,14 +327,14 @@
                         </li>
 
                         {{-- Kelola Bioskop --}}
-                        <li class="dropdown {{ Request::is('kategoribioskop') || Request::is('daftarbioskop') ? 'active' : '' }}">
+                        <li class="dropdown {{ Request::is('kategoribioskop*') || Request::is('daftarbioskop*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                                 <i class='bx bxs-building-house'></i>
                                 <span>Bioskop</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="/kategoribioskop">Kategori Bioskop</a></li>
-                                <li><a class="nav-link" href="/daftarbioskop">Daftar Bioskop</a></li>
+                                <li class="{{ Request::is('kategoribioskop*') ? 'active' : '' }}"><a class="nav-link" href="/kategoribioskop">Kategori Bioskop</a></li>
+                                <li class="{{ Request::is('daftarbioskop*') ? 'active' : '' }}"><a class="nav-link" href="/daftarbioskop">Daftar Bioskop</a></li>
                             </ul>
                         </li>
 

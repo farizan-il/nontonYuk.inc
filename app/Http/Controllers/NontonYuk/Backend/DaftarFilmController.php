@@ -56,7 +56,8 @@ class DaftarFilmController extends Controller
 
         
 
-        if($request->hasFile('sampulFilm')) {
+        if($request->hasFile('sampulFilm')) 
+        {
             $image = $request->file('sampulFilm');
             $filename = time() . '.' . $image->getClientOriginalExtension();
 

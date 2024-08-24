@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('KategoriBioskop', function (Blueprint $table) {
             $table->uuid('kategoriBioskopId')->primary();
             $table->string('namaKategori', 255);
+            $table->string('warna', 255);
+            $table->string('logo', 255);
             $table->timestamps();
         });
 

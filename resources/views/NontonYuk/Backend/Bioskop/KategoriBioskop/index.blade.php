@@ -15,7 +15,7 @@
                                 <h4>Tabel Kelola Genre Film</h4>
                                 <div class="card-header-form d-flex">
                                     <button class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fa fa-plus"></i> Tambahkan Genre
+                                        <i class="fa fa-plus"></i> Kategori Bioskop
                                     </button>
                                 </div>
                             </div>
@@ -23,25 +23,31 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <tr>
-                                            <th>ID Genre</th>
-                                            <th>Nama Genre</th>
+                                            <th>ID Bisokop</th>
+                                            <th>Nama Kategori Bioskop</th>
+                                            <th>Logo</th>
                                             <th>Action</th>
                                         </tr>
 
-                                        @foreach ($genre as $item)
+                                        @foreach ($kategoribioskop as $item)
                                             <tr>
-
-                                                <td class="text-nowrap">{{ Str::limit($item->genreFilmId, 13, '') }}</td>
+                                                <td class="text-nowrap">{{ Str::limit($item->kategoriBioskopId, 13, '') }}</td>
                                                 <td class="text-nowrap">
-                                                    <a href="" class="btn btn-outline-secondary btn-sm disabled fw-bold">
-                                                        <strong>{{ $item->namaGenre }}</strong>
+                                                    <a href="#" class="btn {{ $item->warna }} btn-sm">
+                                                        <strong class="fw-bold">{{ $item->namaKategori }}</strong>
                                                     </a>
                                                 </td>
                                                 <td class="text-nowrap">
-                                                    <form action="{{ route('kategorifilm.destroy', $item->genreFilmId) }}" method="post">
+                                                    <a href="{{ asset('image/logo_bioskop/' . $item->logo) }}" target="_blank" class=" fw-bold">
+                                                        <i class='bx bx-link bx-tada bx-rotate-90' ></i>
+                                                        <strong>Lihat logo</strong>
+                                                    </a>
+                                                </td>
+                                                <td class="text-nowrap">
+                                                    <form action="{{ route('kategoribioskop.destroy', $item->kategoriBioskopId) }}" method="post">
                                                         @method('delete')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('ingin menghapus kategori ini ?')">
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('ingin menghapus kategori ini ?')">
                                                             <strong>Hapus</strong>
                                                         </button>
                                                     </form>
@@ -54,12 +60,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </div>
 
-    @include('nontonyuk.backend.film.genrefilm.create')
+    @include('nontonyuk.backend.bioskop.kategoribioskop.create')
 @endsection
 
 @section('script')

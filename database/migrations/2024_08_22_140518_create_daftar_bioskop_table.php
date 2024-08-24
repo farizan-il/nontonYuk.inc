@@ -19,8 +19,6 @@ return new class extends Migration
             $table->timestamps();
 
             // relasi table
-            $table->uuid('jawdal_studio_id');
-            $table->foreign('jawdal_studio_id')->references('jadwalBioskopId')->on('JadwalBioskop');
             $table->uuid('kategori_bioskop_id');
             $table->foreign('kategori_bioskop_id')->references('kategoriBioskopId')->on('KategoriBioskop');
             $table->uuid('lokasi_bioskop_id');
