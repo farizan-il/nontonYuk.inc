@@ -5,7 +5,9 @@ use App\Http\Controllers\NontonYuk\Backend\DaftarFilmController;
 use App\Http\Controllers\NontonYuk\Backend\DashboardController;
 use App\Http\Controllers\NontonYuk\Backend\GenreFilmController;
 use App\Http\Controllers\NontonYuk\Backend\KategoriBioskopController;
+use App\Http\Controllers\NontonYuk\Backend\KelolaBioskopController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaLokasiController;
+use App\Models\DaftarBioskop;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +33,4 @@ Route::resource('/kelolalokasi', KelolaLokasiController::class);
 Route::resource('/daftarfilm', DaftarFilmController::class);
 Route::resource('/kategorifilm', GenreFilmController::class);
 Route::resource('/kategoribioskop', KategoriBioskopController::class);
+Route::resource('/daftarbioskop', KelolaBioskopController::class);

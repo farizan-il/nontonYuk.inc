@@ -35,7 +35,7 @@ class AuthLoginController extends Controller
         if($auth){
             if(Hash::check($password, $auth->password)){
                 if($auth->isActive == 1){
-                    return redirect('/dashboard')->with('success', 'selamat datang kembali');
+                    return redirect('/dashboard');
                 }else{
                     return redirect('/login')->with('error', 'akun anda harus di aktivasi dahulu');
                 }

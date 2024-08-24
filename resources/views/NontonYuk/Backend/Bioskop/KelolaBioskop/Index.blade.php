@@ -12,10 +12,10 @@
                     <div class="col-12">
                         <div class="card shadow">
                             <div class="card-header">
-                                <h4>Tabel Kelola Lokasi</h4>
+                                <h4>Tabel Kelola Bioskop</h4>
                                 <div class="card-header-form d-flex">
                                     <button class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fa fa-plus"></i> Tambah Lokasi
+                                        <i class="fa fa-plus"></i> Tambah Bioskop
                                     </button>
                                 </div>
                             </div>
@@ -23,19 +23,25 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Kota</th>
-                                            <th>Provinsi</th>
+                                            <th>ID Bisokop</th>
+                                            <th>Nama Bioskop</th>
+                                            <th>Kategori Bioskop</th>
+                                            <th>Lokasi</th>
                                             <th>Action</th>
                                         </tr>
 
-                                        @foreach ($dataLokasi as $item)
+                                        @foreach ($bioskop as $item)
                                             <tr>
-                                                <td class="text-nowrap">{{ Str::limit($item->lokasiBioskopId, 13, '') }}</td>
-                                                <td class="text-nowrap">{{ $item->kota}}</td>
-                                                <td class="text-nowrap">{{ $item->provinsi}}</td>                                                
+                                                <td class="text-nowrap">{{ Str::limit($item->daftarBioskopId, 13, '') }}</td>
+                                                <td class="text-nowrap">{{ $item->namaBioskop }}</td>
                                                 <td class="text-nowrap">
-                                                    <form action="{{ route('kelolalokasi.destroy', $item->lokasiBioskopId) }}" method="post">
+                                                    <a href="#" class="btn {{ $item->kategori->warna }} btn-sm">
+                                                        <strong class="fw-bold">{{ $item->kategori->namaKategori }}</strong>
+                                                    </a>
+                                                </td>
+                                                <td class="text-nowrap">{{ $item->lokasi->kota }}, {{ $item->lokasi->provinsi }}</td>
+                                                <td class="text-nowrap">
+                                                    <form action="{{ route('daftarbioskop.destroy', $item->daftarBioskopId) }}" method="post">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('ingin menghapus kategori ini ?')">
@@ -55,7 +61,7 @@
         </section>
     </div>
 
-    @include('nontonyuk.backend.kelolalokasi.create')
+    @include('nontonyuk.backend.bioskop.kelolabioskop.create')
 @endsection
 
 @section('script')
