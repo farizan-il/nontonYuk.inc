@@ -23,7 +23,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <tr>
-                                            <th>ID Bisokop</th>
+                                            <th>ID</th>
                                             <th>Nama Kategori Bioskop</th>
                                             <th>Logo</th>
                                             <th>Action</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\NontonYuk\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\LokasiBioskop;
 use Illuminate\Http\Request;
 
 class KelolaLokasiController extends Controller
@@ -13,8 +14,10 @@ class KelolaLokasiController extends Controller
      */
     public function index()
     {
+        $Lokasi = LokasiBioskop::all();
         return view('nontonyuk.backend.kelolalokasi.index', [
-            'title' => 'NontonYuk | Kelola Lokasi'
+            'title' => 'NontonYuk | Kelola Lokasi',
+            'dataLokasi' => $Lokasi
         ]);
     }
 
@@ -31,7 +34,22 @@ class KelolaLokasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'kota' => 'required',
+            'provinsi' => 'required'
+        ]);
+
+        $addLokasi = LokasiBioskop::create([
+            'kota' => $validatedData['kota'],
+            'provinsi' => $validatedData['provinsi']
+        ]);
+
+        if($addLokasi){
+            return redirect('kelolalokasi')->with('success', 'Lokasi Berhasil Ditambhakan!');
+        }
+        return redirect('kelolalokasi')->with('error', 'Lokasi Gagal Ditambhakan!');
+
+        
     }
 
     /**
@@ -63,6 +81,12 @@ class KelolaLokasiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $lokasi = LokasiBioskop::findOrFail($id);
+            $lokasi->delete();
+            return redirect('kelolalokasi')->with('success', 'Lokasi Berhasil Dihapus!');
+        }catch(\Exception $e){
+            return redirect('kelolalokasi')->with('error', 'Lokasi Gagal Dihapus!');
+        }
     }
 }

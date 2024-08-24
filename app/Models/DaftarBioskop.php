@@ -22,6 +22,6 @@ class DaftarBioskop extends Model
     }
 
     public function lokasi () {
-        return $this->belongsTo(LokasiBioskop::class, 'lokasi_bioskop_id', 'lokasiBioksopId');
+        return $this->belongsTo(LokasiBioskop::class, 'lokasi_bioskop_id', 'lokasiBioskopId');
     }
 }
