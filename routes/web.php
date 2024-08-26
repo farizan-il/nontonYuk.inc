@@ -37,6 +37,11 @@ Route::resource('/daftarfilm', DaftarFilmController::class);
 Route::resource('/kategorifilm', GenreFilmController::class);
 Route::resource('/kategoribioskop', KategoriBioskopController::class);
 Route::resource('/daftarbioskop', KelolaBioskopController::class);
+
 Route::resource('/kelasteater', KelasTeaterController::class);
-Route::resource('/kelolateater', KelolaTeaterController::class);
+Route::controller(KelolaTeaterController::class)->group(function () {
+    Route::get('/kelolateater/aturkursi/{id}', 'aturkursi')->name('kelolateater.aturkursi');
+    Route::resource('/kelolateater', KelolaTeaterController::class);
+});
+
 Route::resource('/jadwaltayang', JadwalTayangController::class);

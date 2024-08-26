@@ -26,6 +26,19 @@ class KelolaTeaterController extends Controller
         ]);
     }
 
+    public function aturkursi(string $id) {
+        $detailTeater = DaftarTeater::findOrFail($id);
+        
+        if (!$detailTeater) {
+            abort(404, 'Film not found');
+        }
+
+        return view('nontonyuk.backend.ruangtayang.kelolateater.aturkursi', [
+            'title' => 'NontonYuk | Jadwal Tayang',
+            'detail' => $detailTeater
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -63,7 +76,16 @@ class KelolaTeaterController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $detailTeater = DaftarTeater::findOrFail($id);
+
+        if (!$detailTeater) {
+            abort(404, 'Film not found');
+        }
+
+        return view('nontonyuk.backend.ruangtayang.kelolateater.show', [
+            'title' => 'NontonYuk | Jadwal Tayang',
+            'detail' => $detailTeater
+        ]);
     }
 
     /**
