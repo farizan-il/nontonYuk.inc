@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('JamDimulai', function (Blueprint $table) {
             $table->uuid('jamMulaiId')->primary();
             $table->time('jamTayang');
+            $table->date('tanggal');
             $table->timestamps();
 
             // === RELASI TABLE ===

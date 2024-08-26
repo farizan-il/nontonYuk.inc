@@ -339,16 +339,25 @@
                         </li>
 
                         {{-- Kelola Ruang Tayang --}}
-                        <li class="dropdown {{ Request::is('kelasteater') || Request::is('kelolateater') ? 'active' : '' }}">
+                        <li class="dropdown {{ Request::is('kelasteater*') || Request::is('kelolateater*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                                 <i class='bx bxs-grid'></i>
                                 <span>Ruang Tayang</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="/kelasteater">Kelas Teater</a></li>
-                                <li><a class="nav-link" href="/kelolateater">Kelola Teater</a></li>
+                                <li class="{{ request::is('kelasteater*') ? 'active' : '' }}"><a class="nav-link" href="/kelasteater">Kelas Teater</a></li>
+                                <li class="{{ request::is('kelolateater*') ? 'active' : '' }}"><a class="nav-link" href="/kelolateater">Kelola Teater</a></li>
                             </ul>
                         </li>
+
+                        {{-- Jadwal Tayang --}}
+                        <li class="{{ Request::is('jadwaltayang') ? 'active' : '' }}">
+                            <a class="nav-link" href="/jadwaltayang">
+                                <i class="bx bxs-calendar"></i> 
+                                <span>Jadwal Tayang</span>
+                            </a>
+                        </li>
+
 
                         {{-- Kelola Pengguna --}}
                         <li class="{{ Request::is('kelolapengguna') ? 'active' : '' }}">
@@ -515,6 +524,8 @@
             </footer>
         </div>
     </div>
+
+    @yield('script')
 
     <!-- General JS Scripts -->
     <script src="{{ asset('template/modules/jquery.min.js') }}"></script>
