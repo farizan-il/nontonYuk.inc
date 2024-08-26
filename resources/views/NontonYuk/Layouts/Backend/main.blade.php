@@ -345,10 +345,19 @@
                                 <span>Ruang Tayang</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="/kelasteater">Kelas Teater</a></li>
-                                <li><a class="nav-link" href="/kelolateater">Kelola Teater</a></li>
+                                <li class="{{ request::is('kelasteater') ? 'active' : '' }}"><a class="nav-link" href="/kelasteater">Kelas Teater</a></li>
+                                <li class="{{ request::is('kelolateater') ? 'active' : '' }}"><a class="nav-link" href="/kelolateater">Kelola Teater</a></li>
                             </ul>
                         </li>
+
+                        {{-- Jadwal Tayang --}}
+                        <li class="{{ Request::is('jadwaltayang') ? 'active' : '' }}">
+                            <a class="nav-link" href="/jadwaltayang">
+                                <i class="bx bxs-calendar"></i> 
+                                <span>Jadwal Tayang</span>
+                            </a>
+                        </li>
+
 
                         {{-- Kelola Pengguna --}}
                         <li class="{{ Request::is('kelolapengguna') ? 'active' : '' }}">
