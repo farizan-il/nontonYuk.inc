@@ -24,5 +24,9 @@ class DaftarTeater extends Model
     public function bioskop(){
         return $this->belongsTo(DaftarBioskop::class, 'daftar_bioskop_id', 'daftarBioskopId');
     }
+
+    public function detail(){
+        return $this->hasMany(DetailKursi::class, 'daftarBioskopId', 'daftar_teater_id');
+    }
 }
 

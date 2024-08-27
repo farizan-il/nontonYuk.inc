@@ -89,13 +89,15 @@
                                 
                                 <div class="card-header-action">
                                     <div class="row d-flex">
-                                        <a href="{{ route('kelolateater.aturkursi', $detail->daftarTeaterId ) }}" class="btn btn-primary mr-3">
-                                            <strong>Atur Kursi</strong>
-                                        </a>
-
-                                        <a href="{{ route('kelolateater.edit', $detail->daftarTeaterId) }}" class="btn btn-outline-warning mr-3">
-                                            <strong>Edit</strong>
-                                        </a>
+                                        @if ($kursi->isEmpty())
+                                            <a href="{{ route('kelolateater.aturkursi', $detail->daftarTeaterId ) }}" class="btn btn-primary mr-3">
+                                                <strong>Tambahkan Kursi</strong>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('kelolateater.aturkursi', $detail->daftarTeaterId ) }}" class="btn btn-outline-primary mr-3">
+                                                <strong>Edit Kursi</strong>
+                                            </a>
+                                        @endif
 
                                         <form action="{{ route('kelolateater.destroy', $detail->daftarTeaterId) }}" method="POST">
                                             @method('delete')
@@ -108,81 +110,50 @@
                             <div class="card-body">
                                 <div class="mb-2 text-muted">Tata letak kursi di {{ $detail->namaTeater }}</div>
                                 <div class="row">
+
                                     <div class="col-8">
                                         <!-- Screen -->
                                         <div class="screen mb-5"><strong>LAYAR BIOSKOP</strong></div>
-                            
+                                    
                                         <!-- Seat Layout -->
-                                        <div class="seat-layout">
-                                            <!-- Seats -->
-                                            <div class="seats">
-                                                <!-- Row 1 -->
-                                                <div class="seat-row">
-                                                    <div class="m-2 kolom-seat">A</div>
-                                                    <div class="seat">A1</div>
-                                                    <div class="seat">A2</div>
-                                                    <div class="seat">A3</div>
-                                                    <div class="seat">A4</div>
-                                                    <div class="m-2"></div>
-                                                    <div class="seat">A5</div>
-                                                    <div class="seat">A6</div>
-                                                    <div class="seat">A7</div>
-                                                    <div class="seat">A8</div>
+                                        <div class="seat-layout" id="seatLayout">
+                                            
+                                            @if ($kursi->isEmpty())
+                                                <div class="seats">
+                                                    <div>Kursi tidak tersedia, silahkan tambahkan kursi terlebih dahulu</div>
                                                 </div>
-                                                <!-- Row 2 -->
-                                                <div class="seat-row">
-                                                    <div class="m-2 kolom-seat">B</div>
-                                                    <div class="seat">B1</div>
-                                                    <div class="seat">B2</div>
-                                                    <div class="seat">B3</div>
-                                                    <div class="seat">B4</div>
-                                                    <div class="m-2"></div>
-                                                    <div class="seat">B5</div>
-                                                    <div class="seat">B6</div>
-                                                    <div class="seat">B7</div>
-                                                    <div class="seat">B8</div>
+                                            @else
+                                                <!-- Seats -->
+                                                <div class="seats">
+                                                    @foreach ($kursi->groupBy('kolom.kolom') as $kolom => $kursiList)
+                                                        <div class="seat-row">
+                                                            <div class="m-2 kolom-seat">{{ $kolom }}</div>
+                                                            @foreach ($kursiList as $kursiItem)
+                                                                @if($kursiItem->seat == 'gap')
+                                                                    <div class="m-2"></div>
+                                                                @else
+                                                                    <div class="seat">
+                                                                        <span class="seat-number">{{ $kursiItem->kolom->kolom }}{{ $kursiItem->seat }}</span>
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                    @endforeach
                                                 </div>
-                                                <!-- Row 3 -->
-                                                <div class="seat-row">
-                                                    <div class="m-2 kolom-seat">C</div>
-                                                    <div class="seat">C1</div>
-                                                    <div class="seat">C2</div>
-                                                    <div class="seat">C3</div>
-                                                    <div class="seat">C4</div>
-                                                    <div class="m-2"></div>
-                                                    <div class="seat">C5</div>
-                                                    <div class="seat">C6</div>
-                                                    <div class="seat">C7</div>
-                                                    <div class="seat">C8</div>
+                                    
+                                                <!-- Row Labels -->
+                                                <div class="d-flex justify-content-center mb-2">
+                                                    <div class="seat-label m-4"></div>
+                                                    @foreach ($row as $item)
+                                                        @if ($item->nomor == 'gap')
+                                                            <div class="seat-label m-3"></div>
+                                                        @else   
+                                                            <div class="seat-label m-4 numberSeat">{{ $item->nomor }}</div>
+                                                        @endif
+                                                    @endforeach
                                                 </div>
-                                                <!-- Row 4 -->
-                                                <div class="seat-row">
-                                                    <div class="m-2 kolom-seat">D</div>
-                                                    <div class="seat">D1</div>
-                                                    <div class="seat">D2</div>
-                                                    <div class="seat">D3</div>
-                                                    <div class="seat">D4</div>
-                                                    <div class="m-2"></div>
-                                                    <div class="seat">D5</div>
-                                                    <div class="seat">D6</div>
-                                                    <div class="seat">D7</div>
-                                                    <div class="seat">D8</div>
-                                                </div>
-                                            </div>
+                                            @endif
 
-                                            <!-- Row Labels -->
-                                            <div class="d-flex justify-content-center mb-2">
-                                                <div class="seat-label m-4"></div>
-                                                <div class="seat-label m-4 numberSeat">1</div>
-                                                <div class="seat-label m-4 numberSeat">2</div>
-                                                <div class="seat-label m-4 numberSeat">3</div>
-                                                <div class="seat-label m-4 numberSeat">4</div>
-                                                <div class="seat-label m-3"></div>
-                                                <div class="seat-label m-4 numberSeat">5</div>
-                                                <div class="seat-label m-4 numberSeat">6</div>
-                                                <div class="seat-label m-4 numberSeat">7</div>
-                                                <div class="seat-label m-4 numberSeat">8</div>
-                                            </div>
                                         </div>
                                     </div>
 

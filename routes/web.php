@@ -40,6 +40,8 @@ Route::resource('/daftarbioskop', KelolaBioskopController::class);
 
 Route::resource('/kelasteater', KelasTeaterController::class);
 Route::controller(KelolaTeaterController::class)->group(function () {
+    Route::post('/kelolateater/storekursi', [KelolaTeaterController::class, 'storeKursi'])->name('kelolateater.storeKursi');
+
     Route::get('/kelolateater/aturkursi/{id}', 'aturkursi')->name('kelolateater.aturkursi');
     Route::resource('/kelolateater', KelolaTeaterController::class);
 });
