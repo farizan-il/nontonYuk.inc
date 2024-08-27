@@ -22,6 +22,8 @@ return new class extends Migration
             $table->uuid('nomor_kursi_id');
             $table->foreign('nomor_kursi_id')->references('nomorKursiId')->on('NomorKursi');
             
+            $table->string('row', 3);
+            $table->string('seat', 3);
             $table->boolean('isBooking')->default(false);
             $table->timestamps();
 

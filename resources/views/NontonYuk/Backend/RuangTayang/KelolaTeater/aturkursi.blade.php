@@ -79,7 +79,6 @@
             white-space: nowrap;
             max-width: 100%;
         }
-
     </style>
 @endsection
 
@@ -92,22 +91,14 @@
                         <div class="card ">
                             <div class="card-header">
                                 <h4>Detail <strong>{{ $detail->namaTeater }}</strong></h4>
-                                
+
                                 <div class="card-header-action">
                                     <div class="row d-flex">
-                                        <a href="{{ route('kelolateater.aturkursi', $detail->daftarTeaterId ) }}" class="btn btn-primary mr-3">
-                                            <strong>Atur Kursi</strong>
-                                        </a>
-
-                                        <a href="{{ route('kelolateater.edit', $detail->daftarTeaterId) }}" class="btn btn-outline-warning mr-3">
-                                            <strong>Edit</strong>
-                                        </a>
-
-                                        <form action="{{ route('kelolateater.destroy', $detail->daftarTeaterId) }}" method="POST">
+                                        {{-- <form action="{{ route('kelolateater.destroy', $detail->daftarTeaterId) }}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button href="#" class="btn btn-outline-danger" onclick="return confirm('ingin menghapus kategori ini ?')">Hapus</button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                             </div>
@@ -117,38 +108,46 @@
                                     <div class="col-8">
                                         <!-- Screen -->
                                         <div class="screen mb-5"><strong>LAYAR BIOSKOP</strong></div>
-                            
+
                                         <!-- Seat Layout yang terbentuk dari inputan di form -->
-                                        <div class="seat-layout" id="seatLayout"></div>
+                                        <div class="seat-layout" id="seatLayout">
+
+                                        </div>
                                     </div>
 
                                     {{-- detail teater --}}
                                     <div class="col-4">
                                         <p><strong>Nama :</strong> {{ $detail->namaTeater }}</p>
-                                        <p><strong>Kelas :</strong> 
+                                        <p><strong>Kelas :</strong>
                                             <a href="" class="btn btn-outline-secondary btn-sm disabled fw-bold">
                                                 <strong>{{ $detail->kelas->namaKelas }}</strong>
                                             </a>
                                         </p>
                                         <p><strong>Nama Bioskop :</strong> {{ $detail->bioskop->namaBioskop }}</p>
-                                        <p><strong>Lokasi :</strong> {{ $detail->bioskop->lokasi->kota }}, {{ $detail->bioskop->lokasi->provinsi }}</p>
+                                        <p><strong>Lokasi :</strong> {{ $detail->bioskop->lokasi->kota }},
+                                            {{ $detail->bioskop->lokasi->provinsi }}</p>
 
                                         <hr>
-
                                         {{-- Atur kolom kursi --}}
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label col-11"><strong>Kolom Kursi</strong></label>
-                                            <input type="text" class="form-control col-10 ml-3" id="columns" name="Kolom" placeholder="Cukup gunakan 1 Koma [ABCD..]">
+                                        <form method="POST" action="{{ route('kelolateater.storeKursi') }}">
+                                            @csrf
+                                            <input type="hidden" name="teater_id" value="{{ $teater_id }}">
+
+                                            <div class="form-group row mb-4">
+                                                <label class="col-form-label col-11"><strong>Kolom Kursi</strong></label>
+                                                <input type="text" class="form-control col-10 ml-3" id="columns" name="Kolom" placeholder="Cukup gunakan 1 Koma [A,B,C,D..]">
+                                            </div>
+                                        
+                                            <div class="form-group row mb-4">
+                                                <label class="col-form-label col-11"><strong>Number Kursi</strong></label>
+                                                <input type="text" class="form-control col-10 ml-3" id="numbers" name="Nomor" placeholder="Gunakan koma 2x untuk jarak [1,2,,3,4,..]">
+                                            </div>
                                             
-                                        </div>
-
-                                        {{-- Atur number kursi --}}
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label col-11"><strong>Number Kursi</strong></label>
-                                            <input type="text" class="form-control col-10 ml-3" id="numbers" name="Kolom" placeholder="Gunakan koma 2x untuk jarak [1,2,,3,4,..]">
-                                        </div>
-
-                                        <button class="btn btn-sm btn-dark" onclick="generateSeatLayout()">Atur Tata Letak</button>
+                                            <!-- Hidden input untuk menyimpan layout kursi -->
+                                            <input type="hidden" id="seatLayoutData" name="seatLayoutData">
+                                            <a class="btn btn-sm btn-dark text-white mb-3" onclick="generateSeatLayout()">Cetak Tata Kursi</a><br>
+                                            <button type="submit" class="btn btn-sm btn-outline-primary">Simpan Kursi</button>
+                                        </form>                                        
                                     </div>
                                 </div>
                             </div>
@@ -158,62 +157,62 @@
             </div>
         </section>
     </div>
-  
 @endsection
 
 @section('script')
-<script>
-    function generateSeatLayout() {
-        const columns = document.getElementById('columns').value.replace(/\s+/g, '').split(',');
-        const numbers = document.getElementById('numbers').value.replace(/\s+/g, '').split(',');
+    <script>
+        function generateSeatLayout() {
+            const columns = document.getElementById('columns').value.replace(/\s+/g, '').split(',');
+            const numbers = document.getElementById('numbers').value.replace(/\s+/g, '').split(',');
 
-        const seatLayout = document.getElementById('seatLayout');
-        seatLayout.innerHTML = ''; // Clear previous layout
+            const seatLayout = document.getElementById('seatLayout');
+            seatLayout.innerHTML = '';
 
-        columns.forEach(column => {
-            const row = document.createElement('div');
-            row.classList.add('seat-row');
+            columns.forEach(column => {
+                const row = document.createElement('div');
+                row.classList.add('seat-row');
 
-            const columnDiv = document.createElement('div');
-            columnDiv.classList.add('m-2', 'kolom-seat');
-            columnDiv.innerText = column;
-            row.appendChild(columnDiv);
+                const columnDiv = document.createElement('div');
+                columnDiv.classList.add('m-2', 'kolom-seat');
+                columnDiv.innerText = column;
+                row.appendChild(columnDiv);
+
+                numbers.forEach(number => {
+                    if (number === '') {
+                        const spacer = document.createElement('div');
+                        spacer.classList.add('m-2');
+                        row.appendChild(spacer);
+                    } else {
+                        const seat = document.createElement('div');
+                        seat.classList.add('seat');
+                        seat.innerText = column + number;
+                        row.appendChild(seat);
+                    }
+                });
+
+                seatLayout.appendChild(row);
+            });
+
+            // kode mulai row kursi
+            const labels = document.createElement('div');
+            labels.classList.add('d-flex', 'justify-content-center', 'mb-2');
+            labels.innerHTML = '<div class="seat-label m-4"></div>'; // jarak untuk row
 
             numbers.forEach(number => {
                 if (number === '') {
                     const spacer = document.createElement('div');
-                    spacer.classList.add('m-2');
-                    row.appendChild(spacer);
+                    spacer.classList.add('seat-label', 'm-3');
+                    labels.appendChild(spacer);
                 } else {
-                    const seat = document.createElement('div');
-                    seat.classList.add('seat');
-                    seat.innerText = column + number;
-                    row.appendChild(seat);
+                    const label = document.createElement('div');
+                    label.classList.add('seat-label', 'm-4', 'numberSeat');
+                    label.innerText = number;
+                    labels.appendChild(label);
                 }
             });
 
-            seatLayout.appendChild(row);
-        });
-
-        // Generate Row Labels
-        const labels = document.createElement('div');
-        labels.classList.add('d-flex', 'justify-content-center', 'mb-2');
-        labels.innerHTML = '<div class="seat-label m-4"></div>'; // Spacer for the row label
-
-        numbers.forEach(number => {
-            if (number === '') {
-                const spacer = document.createElement('div');
-                spacer.classList.add('seat-label', 'm-3');
-                labels.appendChild(spacer);
-            } else {
-                const label = document.createElement('div');
-                label.classList.add('seat-label', 'm-4', 'numberSeat');
-                label.innerText = number;
-                labels.appendChild(label);
-            }
-        });
-
-        seatLayout.appendChild(labels);
-    }
-</script>
+            seatLayout.appendChild(labels);
+        }
+    </script>
+    
 @endsection
