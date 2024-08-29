@@ -117,7 +117,6 @@
                                     
                                         <!-- Seat Layout -->
                                         <div class="seat-layout" id="seatLayout">
-                                            
                                             @if ($kursi->isEmpty())
                                                 <div class="seats">
                                                     <div>Kursi tidak tersedia, silahkan tambahkan kursi terlebih dahulu</div>
@@ -127,12 +126,12 @@
                                                 <div class="seats">
                                                     @foreach ($kursi->groupBy('kolom.kolom') as $kolom => $kursiList)
                                                         <div class="seat-row">
-                                                            <div class="m-2 kolom-seat">{{ $kolom }}</div>
+                                                            <div class="m-2 kolom-seat text-secondary"><strong>{{ $kolom }}</strong></div>
                                                             @foreach ($kursiList as $kursiItem)
                                                                 @if($kursiItem->seat == 'gap')
                                                                     <div class="m-2"></div>
                                                                 @else
-                                                                    <div class="seat">
+                                                                    <div class="seat" data-bs-toggle="tooltip" data-bs-placement="top" title="Harga Rp. {{ number_format( $kursiItem->teater->kelas->harga, 0, ',', '.') }}">
                                                                         <span class="seat-number">{{ $kursiItem->kolom->kolom }}{{ $kursiItem->seat }}</span>
                                                                     </div>
                                                                 @endif
@@ -140,20 +139,7 @@
                                                         </div>
                                                     @endforeach
                                                 </div>
-                                    
-                                                <!-- Row Labels -->
-                                                <div class="d-flex justify-content-center mb-2">
-                                                    <div class="seat-label m-4"></div>
-                                                    @foreach ($row as $item)
-                                                        @if ($item->nomor == 'gap')
-                                                            <div class="seat-label m-3"></div>
-                                                        @else   
-                                                            <div class="seat-label m-4 numberSeat">{{ $item->nomor }}</div>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
                                             @endif
-
                                         </div>
                                     </div>
 
