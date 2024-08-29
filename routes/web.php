@@ -10,6 +10,7 @@ use App\Http\Controllers\NontonYuk\Backend\KelasTeaterController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaBioskopController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaLokasiController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaTeaterController;
+use App\Http\Controllers\NontonYuk\Frontend\BerandaController;
 use App\Models\DaftarBioskop;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,6 @@ Route::controller(KelolaTeaterController::class)->group(function () {
 });
 
 Route::resource('/jadwaltayang', JadwalTayangController::class);
+
+
+Route::resource('/beranda', BerandaController::class);
