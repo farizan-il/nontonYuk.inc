@@ -4,20 +4,17 @@ namespace App\Http\Controllers\NontonYuk\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\DaftarFilm;
+use App\Models\JadwalTayang;
 use Illuminate\Http\Request;
 
-class BerandaController extends Controller
+class DetailFilmController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $daftarfilm = DaftarFilm::all();
-        return view('nontonyuk.frontend.beranda.index', [
-            'title' => '',
-            'daftarfilm' => $daftarfilm
-        ]);
+        
     }
 
     /**
@@ -41,8 +38,13 @@ class BerandaController extends Controller
      */
     public function show(string $id)
     {
-        // $daftarfilm = DaftarFilm::findOrFail($id);
-        // return view('nontonyuk.frontend.beranda')
+        $detailfilm = DaftarFilm::with('dimulai.teater.bioskop.kategori')->findOrFail($id);
+        $query = JadwalTayang::with('film', 'teater.bioskop.lokasi');
+        return view('nontonyuk.frontend.detailfilm.index', [
+            'title' => 'Detail Film',
+            'film' => $detailfilm,
+            'kategori' => $query->get()
+        ]);
     }
 
     /**

@@ -16,4 +16,8 @@ class KategoriBioskop extends Model
         'warna',
         'logo'
     ];
+
+    public function bioskop(){
+        return $this->hasMany(DaftarBioskop::class, 'kategori_bioskop_id');
+    }
 }
