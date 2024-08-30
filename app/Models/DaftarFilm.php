@@ -30,4 +30,8 @@ class DaftarFilm extends Model
     {
         return $this->belongsTo(GenreFilm::class, 'genre_film_id', 'genreFilmId');
     }
+
+    public function dimulai(){
+        return $this->hasMany(JadwalTayang::class, 'daftar_film_id');
+    }
 }
