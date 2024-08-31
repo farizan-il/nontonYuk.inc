@@ -20,6 +20,7 @@
         var welcomeSlide = $('.hero-slides');
         var testimonials = $('.testimonials-slide');
         var albumSlides = $('.albums-slideshow');
+        var albumSlides2 = $('.albums-slideshow2');
 
         welcomeSlide.owlCarousel({
             items: 1,
@@ -93,6 +94,32 @@
                 },
                 1200: {
                     items: 5
+                }
+            }
+        });
+
+        albumSlides2.owlCarousel({
+            items: 4,
+            margin: 30,
+            loop: true,
+            nav: true,
+            navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed: 750,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                992: {
+                    items: 4
                 }
             }
         });
