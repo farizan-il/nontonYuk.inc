@@ -12,6 +12,7 @@ use App\Http\Controllers\NontonYuk\Backend\KelolaLokasiController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaTeaterController;
 use App\Http\Controllers\NontonYuk\Frontend\BerandaController;
 use App\Http\Controllers\NontonYuk\Frontend\DetailFilmController;
+use App\Http\Controllers\NontonYuk\Frontend\PaymentController;
 use App\Models\DaftarBioskop;
 use Illuminate\Support\Facades\Route;
 
@@ -53,3 +54,8 @@ Route::resource('/jadwaltayang', JadwalTayangController::class);
 
 Route::resource('/beranda', BerandaController::class);
 Route::resource('/detailfilm', DetailFilmController::class);
+
+Route::controller(PaymentController::class)->group(function() {
+    Route::get('payment/pilihkursi/{id}', 'pilihkursi')->name('payment.pilihkursi');
+    Route::resource('payment', PaymentController::class);
+});

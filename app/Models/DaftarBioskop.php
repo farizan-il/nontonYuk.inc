@@ -24,4 +24,8 @@ class DaftarBioskop extends Model
     public function lokasi () {
         return $this->belongsTo(LokasiBioskop::class, 'lokasi_bioskop_id', 'lokasiBioskopId');
     }
+
+    public function teater () {
+        return $this->hasMany(DaftarTeater::class, 'daftar_bioskop_id');
+    }
 }

@@ -1573,16 +1573,16 @@ img {
 .single-accordion h6 {
   margin-bottom: 0; }
   .single-accordion h6 a {
-    background-color: #000000;
+    background-color: #ececec;
     border-radius: 0;
-    color: #ffffff;
+    color: #212121;
     display: block;
     margin: 0;
     padding: 20px 70px 20px 30px;
     position: relative;
     font-size: 14px;
     text-transform: capitalize;
-    border: 1px solid #000000; }
+     }
     .single-accordion h6 a span {
       background: transparent;
       -webkit-transition-duration: 500ms;
