@@ -25,4 +25,8 @@ class DetailTransaksi extends Model
         'jamTayang',
         'metode_pembayaran_id',
     ];
+
+    public function metode() {
+        return $this->belongsTo(MetodePembayaran::class, 'metode_pembaran_id', 'metodePembayaranId');
+    }
 }

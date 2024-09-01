@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NontonYuk\Auth\AuthentifikasiPelangganController;
 use App\Http\Controllers\NontonYuk\Auth\AuthLoginController;
 use App\Http\Controllers\NontonYuk\Backend\DaftarFilmController;
 use App\Http\Controllers\NontonYuk\Backend\DashboardController;
@@ -51,6 +52,13 @@ Route::controller(KelolaTeaterController::class)->group(function () {
 
 Route::resource('/jadwaltayang', JadwalTayangController::class);
 
+
+// frontend route
+
+// login
+Route::resource('/masuk', AuthentifikasiPelangganController::class);
+Route::controller(AuthentifikasiPelangganController::class)->group(function() {
+});
 
 Route::resource('/beranda', BerandaController::class);
 Route::resource('/detailfilm', DetailFilmController::class);

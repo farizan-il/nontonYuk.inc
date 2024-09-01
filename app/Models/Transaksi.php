@@ -24,4 +24,8 @@ class Transaksi extends Model
     public function detailtransaksi(){
         return $this->belongsTo(DetailKursi::class, 'detail_transaksi_id', 'detailTransaksiId');
     }
+
+    public function jammulai(){
+        return $this->belongsTo(JadwalTayang::class, 'jam_mulai_id', 'jadwalTayangId');
+    }
 }
