@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NontonYuk\Auth\AuthentifikasiPelangganController;
 use App\Http\Controllers\NontonYuk\Auth\AuthLoginController;
 use App\Http\Controllers\NontonYuk\Backend\DaftarFilmController;
 use App\Http\Controllers\NontonYuk\Backend\DashboardController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\NontonYuk\Backend\KelolaLokasiController;
 use App\Http\Controllers\NontonYuk\Backend\KelolaTeaterController;
 use App\Http\Controllers\NontonYuk\Frontend\BerandaController;
 use App\Http\Controllers\NontonYuk\Frontend\DetailFilmController;
+use App\Http\Controllers\NontonYuk\Frontend\PaymentController;
 use App\Models\DaftarBioskop;
 use Illuminate\Support\Facades\Route;
 
@@ -51,5 +53,17 @@ Route::controller(KelolaTeaterController::class)->group(function () {
 Route::resource('/jadwaltayang', JadwalTayangController::class);
 
 
+// frontend route
+
+// login
+Route::resource('/masuk', AuthentifikasiPelangganController::class);
+Route::controller(AuthentifikasiPelangganController::class)->group(function() {
+});
+
 Route::resource('/beranda', BerandaController::class);
 Route::resource('/detailfilm', DetailFilmController::class);
+
+Route::controller(PaymentController::class)->group(function() {
+    Route::get('payment/pilihkursi/{id}', 'pilihkursi')->name('payment.pilihkursi');
+    Route::resource('payment', PaymentController::class);
+});

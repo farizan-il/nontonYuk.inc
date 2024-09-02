@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="load-more-btn text-center wow fadeInUp " data-wow-delay="300ms">
-                    <a href="#" class="btn oneMusic-btn rounded">Beli Tiket <i class="fa fa-angle-double-right"></i></a>
+                    <a href="{{ route('payment.show' , $film->daftarFilmId) }}" class="btn oneMusic-btn rounded">Beli Tiket <i class="fa fa-angle-double-right"></i></a>
                 </div>
             </div>
         </div>

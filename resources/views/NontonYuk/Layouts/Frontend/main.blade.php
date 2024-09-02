@@ -34,13 +34,13 @@
     <header class="header-area">
         <!-- Navbar Area -->
         <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
+            <div class="classy-nav-container @yield('color') breakpoint-off">
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="{{ asset('enduser-template/img/core-img/logo.png') }}" alt=""></a>
+                        <a href="index.html" class="nav-brand text-white">NontonYuk.Inc</a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -56,48 +56,48 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">
+                            <div class="classynav ">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="albums-store.html">Albums</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <li><a class="" href="index.html">Home</a></li>
+                                    <li><a class="" href="albums-store.html">Albums</a></li>
+                                    <li><a class="" href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="albums-store.html">Albums</a></li>
-                                            <li><a href="event.html">Events</a></li>
-                                            <li><a href="blog.html">News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="#">Dropdown</a>
+                                            <li><a class="" href="index.html">Home</a></li>
+                                            <li><a class="" href="albums-store.html">Albums</a></li>
+                                            <li><a class="" href="event.html">Events</a></li>
+                                            <li><a class="" href="blog.html">News</a></li>
+                                            <li><a class="" href="contact.html">Contact</a></li>
+                                            <li><a class="" href="elements.html">Elements</a></li>
+                                            <li><a class="" href="login.html">Login</a></li>
+                                            <li><a class="" href="#">Dropdown</a>
                                                 <ul class="dropdown">
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
+                                                    <li><a class="" href="#">Even Dropdown</a></li>
+                                                    <li><a class="" href="#">Even Dropdown</a></li>
+                                                    <li><a class="" href="#">Even Dropdown</a></li>
+                                                    <li><a class="" href="#">Even Dropdown</a>
                                                         <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
+                                                            <li><a class="" href="#">Deeply Dropdown</a></li>
+                                                            <li><a class="" href="#">Deeply Dropdown</a></li>
+                                                            <li><a class="" href="#">Deeply Dropdown</a></li>
+                                                            <li><a class="" href="#">Deeply Dropdown</a></li>
+                                                            <li><a class="" href="#">Deeply Dropdown</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
+                                                    <li><a class="" href="#">Even Dropdown</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a class="" href="event.html">Events</a></li>
+                                    <li><a class="" href="blog.html">News</a></li>
+                                    <li><a class="" href="contact.html">Contact</a></li>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn">Login / Register</a>
+                                        <a class="" href="login.html" id="loginBtn">Login / Register</a>
                                     </div>
 
                                     <!-- Cart Button -->
