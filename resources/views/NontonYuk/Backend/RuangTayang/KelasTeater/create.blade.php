@@ -21,8 +21,6 @@
                         <label class="col-form-label"><strong>Harga</strong></label>
                         <input type="number" class="form-control" name="harga">
                     </div>
-
-
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

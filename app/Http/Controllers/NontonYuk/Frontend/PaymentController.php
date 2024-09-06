@@ -17,6 +17,13 @@ class PaymentController extends Controller
     {
         //
     }
+    
+    public function index()
+    {
+        return view('nontonyuk.frontend.payment.metodepembayaran', [
+            'title' => 'Payment Method'
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

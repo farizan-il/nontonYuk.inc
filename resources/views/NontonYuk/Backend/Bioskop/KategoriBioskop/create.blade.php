@@ -28,43 +28,43 @@
                         <div class="row gutters-xs">
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-primary" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-primary" class="colorinput-input" />
                                     <span class="colorinput-color bg-primary"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-secondary" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-secondary" class="colorinput-input" />
                                     <span class="colorinput-color bg-secondary"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-danger" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-danger" class="colorinput-input" />
                                     <span class="colorinput-color bg-danger"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-warning" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-warning" class="colorinput-input" />
                                     <span class="colorinput-color bg-warning"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-info" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-info" class="colorinput-input" />
                                     <span class="colorinput-color bg-info"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-success" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-success" class="colorinput-input" />
                                     <span class="colorinput-color bg-success"></span>
                                 </label>
                             </div>
                             <div class="col-auto">
                                 <label class="colorinput">
-                                    <input name="color" type="radio" value="btn-dark" class="colorinput-input" />
+                                    <input name="color" type="radio" value="text-dark" class="colorinput-input" />
                                     <span class="colorinput-color bg-dark"></span>
                                 </label>
                             </div>
