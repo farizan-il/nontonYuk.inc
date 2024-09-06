@@ -65,5 +65,5 @@ Route::resource('/detailfilm', DetailFilmController::class);
 
 Route::controller(PaymentController::class)->group(function() {
     Route::get('payment/pilihkursi/{id}', 'pilihkursi')->name('payment.pilihkursi');
-    Route::resource('payment', PaymentController::class);
+    Route::resource('/payment', PaymentController::class);
 });

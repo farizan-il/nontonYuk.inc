@@ -45,7 +45,7 @@
                                                 <td class="text-nowrap">Rp {{ number_format($item->kelas->harga, 2, ',', '.') }}</td>
                                                 <td class="text-nowrap">{{ $item->bioskop->namaBioskop }}</td>
                                                 <td class="text-nowrap">
-                                                    <a href="#" class="btn {{ $item->bioskop->kategori->warna }} btn-sm">
+                                                    <a href="#" class="{{ $item->bioskop->kategori->warna }} mr-2 p-1 rounded text-white">
                                                         <strong class="fw-bold">{{ $item->bioskop->kategori->namaKategori }}</strong>
                                                     </a>
                                                 </td>
