@@ -91,37 +91,159 @@
                 <div class="section-heading style-2">
                     <h2>Metode Pembayaran</h2>
                 </div>
-                <div class="col-12 col-md-8 col-lg-9">
-                    <div class="featured-artist-thumb">
-                        <div class="col-12 p-0">
-                            <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="false">
-                                <div class="panel single-accordion border">
-                                    <h6>
-                                        <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapse"
-                                            data-toggle="collapse" data-parent="#accordion" href="#collapse" style="font-size: 1.3rem">
-                                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        </a>
-                                    </h6>
-                                    <div id="collapse" class="accordion-content collapse p-4">
-                                        <p class="mb-2 text-dark p-0 text-uppercase" style="font-size: 1rem"><strong></strong></p>
-                                        <a href="" class="border border-dark mr-2 p-1 rounded" style="font-size: 1rem">
-                                            <strong class="fw-bold">
-                                                
-                                            </strong>
-                                        </a>
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="accordions accordion-flush mb-100" id="accordion" role="tablist" aria-multiselectable="true">
+                        <!-- BRI Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseBRI"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseBRI" style="font-size: 1.3rem">
+                                    <img src="https://www.freelogovectors.net/wp-content/uploads/2023/02/bri-logo-freelogovectors.net_.png" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseBRI" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapBRI">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapBRI" value="">
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailBRI">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailBRI" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
                             </div>
-                        </div>  
+                        </div>
+                
+                        <!-- BCA Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseBCA"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseBCA" style="font-size: 1.3rem">
+                                    <img src="https://tse2.mm.bing.net/th?id=OIP.tm3bL9suNeElHbEyR4YlDAHaCJ&pid=Api&P=0&h=180" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseBCA" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapBCA">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapBCA" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailBCA">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailBCA" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
+                            </div>
+                        </div>
+                
+                        <!-- BNI Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseBNI"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseBNI" style="font-size: 1.3rem">
+                                    <img src="https://logos-download.com/wp-content/uploads/2017/03/BCA_logo_Bank_Central_Asia.png" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseBNI" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapBNI">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapBNI" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailBNI">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailBNI" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
+                            </div>
+                        </div>
+                
+                        <!-- MANDIRI Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseMANDIRI"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseMANDIRI" style="font-size: 1.3rem">
+                                    <img src="https://w7.pngwing.com/pngs/38/408/png-transparent-mandiri-logo-bank-mandiri-bank-negara-indonesia-bank-indonesia-bank-account-bank-mandiri-cdr-text-logo.png" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseMANDIRI" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapMANDIRI">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapMANDIRI" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailMANDIRI">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailMANDIRI" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
+                            </div>
+                        </div>
+                
+                        <!-- GOPAY Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseGOPAY"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseGOPAY" style="font-size: 1.3rem">
+                                    <img src="https://cuankreatif.com/wp-content/uploads/2024/05/GoPay-Logo.png" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseGOPAY" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapGOPAY">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapGOPAY" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailGOPAY">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailGOPAY" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
+                            </div>
+                        </div>
+                
+                        <!-- OVO Accordion -->
+                        <div class="panel single-accordion border-bottom">
+                            <h6>
+                                <a role="button" class="rounded collapsed" aria-expanded="false" aria-controls="collapseOVO"
+                                    data-toggle="collapse" data-bs-parent="#accordion" href="#collapseOVO" style="font-size: 1.3rem">
+                                    <img src="https://1.bp.blogspot.com/-rmLjPMKtx7k/XnK070LoSRI/AAAAAAAASbs/i2kIFlIzh0MUpnLZzeFoXgYN-a0EpZRvwCLcBGAsYHQ/s1600/OVO.png" class="mr-4" width="70px" alt="">
+                                    
+                                </a>
+                            </h6>
+                            <div id="collapseOVO" class="accordion-content collapse p-4" data-bs-parent="#accordion">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="namaLengkapOVO">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="namaLengkapOVO" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="emailOVO">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="emailOVO" value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-sm rounded">Selesai</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
 
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="featured-artist-content">
                         <!-- Section Heading -->
                         <div class="section-heading dark text-left mb-4">
-                            
                             <div class="mt-30">
                                 <form action="#" method="post">
                                     <input type="hidden" class="form-control form-control-sm" id="kursipilihan" value="" readonly>
