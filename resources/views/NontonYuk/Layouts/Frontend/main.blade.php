@@ -56,19 +56,19 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav ">
+                            <div class="classynav">
                                 <ul>
                                     <li><a class="" href="index.html">Home</a></li>
                                     <li><a class="" href="albums-store.html">Albums</a></li>
                                     <li><a class="" href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a class="" href="index.html">Home</a></li>
+                                            <li><a class="" href="/beranda">Beranda</a></li>
                                             <li><a class="" href="albums-store.html">Albums</a></li>
                                             <li><a class="" href="event.html">Events</a></li>
                                             <li><a class="" href="blog.html">News</a></li>
                                             <li><a class="" href="contact.html">Contact</a></li>
                                             <li><a class="" href="elements.html">Elements</a></li>
-                                            <li><a class="" href="login.html">Login</a></li>
+                                            <li><a class="" href="">Login</a></li>
                                             <li><a class="" href="#">Dropdown</a>
                                                 <ul class="dropdown">
                                                     <li><a class="" href="#">Even Dropdown</a></li>
@@ -97,7 +97,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a class="" href="login.html" id="loginBtn">Login / Register</a>
+                                        <a class="" href="/masuk" id="loginBtn">Login / Register</a>
                                     </div>
 
                                     <!-- Cart Button -->
@@ -162,3 +162,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 
 </html>
+
+
